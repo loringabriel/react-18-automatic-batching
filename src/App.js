@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+let renderCount = 0;
 
 function App() {
+  const [count, setCount] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  renderCount += 1;
+  console.log("Rendered => Total Renders: ", renderCount);
+
+  const handleOnClickAsync = () => {
+    fetch("https://jsonplaceholder.typicode.com/todos/1").then(() => {
+      setCount(count + 1);
+      setLoading(false);
+    });
+  };
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleOnClickAsync}>Click me</button>
       </header>
     </div>
   );
