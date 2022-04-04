@@ -1,6 +1,6 @@
 # Sample React 18 app with automatic batching 
 
-React 18 includes automatic batching, which means that state updates are grouped compared with v17 where not all updated were grouped (eg. state updates inside promises).
+React 18 includes automatic batching, which means that state updates are grouped compared with v17 where not all updated were grouped (eg. state updates inside promises). [View React 17 example](https://github.com/loringabriel/react-17-batching)
 
 ```javascript
 function App() {
